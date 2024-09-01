@@ -38,7 +38,7 @@ int Graph::InitializeMatrix()
 	for (int i = 0; i < AmountofNodes; i++) {
 		graphmatrix.push_back({});
 		for (int j = 0; j < AmountofNodes; j++) {
-			graphmatrix[i].push_back(0);
+			graphmatrix[i].push_back(-1);
 		}
 	}
 	return 0;
@@ -59,11 +59,58 @@ int Graph::SetEdge(string Node1, string Node2, int Cost)
 		return -2;
 	}
 
+	if (index1 == index2) {
+		cout << "the graph cannot support edges from the node to itself" << endl;
+		return -3;
+	}
+
 	graphmatrix[index1][index2] = Cost;
-	graphmatrix[index1][index2] = Cost;
+	graphmatrix[index2][index1] = Cost;
 
 	return 0;
 
+}
+
+int Graph::Reset()
+{
+	key = {};
+	graphmatrix = {};
+	AmountofNodes = 0;
+	isInit = false;
+	return 0;
+}
+
+vector<Edge> Graph::GetAvailableEdgesOf(string NodeName)
+{
+	vector<Edge> output = {};
+	int index = findIndexOf(NodeName);
+	for (int i = 0; i < AmountofNodes; i++) {
+		if (graphmatrix[index][i] >= 0) {
+			output.push_back(Edge(graphmatrix[index][i], key[i]));
+		}
+	}
+	return output;
+}
+
+int Graph::InitializeGraph(string inputFileURL)
+{
+	CSVReader inputFile;
+	vector<vector<string>> Data = inputFile.ReadFile(inputFileURL);
+	Reset();
+
+	for (int i = 0; i < Data.size(); i++) {
+		if (Data[i][0] == "Node") {
+			AddNode(Data[i][1]);
+		}
+		else if (Data[i][0] == "#Edges") {
+			InitializeMatrix();
+		}
+		else if (Data[i][0] == "Edge") {
+			SetEdge(Data[i][1], Data[i][2], stoi(Data[i][3]));
+		}
+	}
+
+	return 0;
 }
 
 int Graph::printGraph()

@@ -9,13 +9,11 @@ int main()
 {
     Graph graph;
 
-    graph.AddNode("A");
-    graph.AddNode("B");
-    graph.AddNode("C");
+    string input = "";
 
-    graph.InitializeMatrix();
+    cin >> input;
 
-    graph.SetEdge("A", "B", 4);
+    graph.InitializeGraph(input);
 
     graph.printGraph();
 

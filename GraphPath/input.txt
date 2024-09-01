@@ -1,0 +1,11 @@
+Node,A
+Node,B
+Node,C
+Node,D
+Node,E
+#Edges
+Edge,A,B,3
+Edge,C,E,5
+Edge,D,E,2
+Edge,A,D,2
+Edge,E,B,4
