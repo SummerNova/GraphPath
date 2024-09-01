@@ -26,5 +26,5 @@ vector<Path> Path::Step(vector<Edge> availableRoutes)
 	{
 		options.push_back(Path(Route,Length,availableRoutes[i].otherNode,availableRoutes[i].Length));
 	}
-	return vector<Path>();
+	return options;
 }

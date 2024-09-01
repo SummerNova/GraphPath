@@ -1,3 +1,6 @@
 E:\C++ 101\GraphPath\GraphPath\CSVReader.cpp;E:\C++ 101\GraphPath\GraphPath\x64\Debug\CSVReader.obj
+E:\C++ 101\GraphPath\GraphPath\Edge.cpp;E:\C++ 101\GraphPath\GraphPath\x64\Debug\Edge.obj
 E:\C++ 101\GraphPath\GraphPath\Graph.cpp;E:\C++ 101\GraphPath\GraphPath\x64\Debug\Graph.obj
 E:\C++ 101\GraphPath\GraphPath\GraphPath.cpp;E:\C++ 101\GraphPath\GraphPath\x64\Debug\GraphPath.obj
+E:\C++ 101\GraphPath\GraphPath\Path.cpp;E:\C++ 101\GraphPath\GraphPath\x64\Debug\Path.obj
+E:\C++ 101\GraphPath\GraphPath\Pathfinder.cpp;E:\C++ 101\GraphPath\GraphPath\x64\Debug\Pathfinder.obj

@@ -2,12 +2,15 @@
 //
 #include <string>
 #include "Graph.h"
+#include "Pathfinder.h"
+#include "Path.h"
 #include <iostream>
 using namespace std;
 
 int main()
 {
     Graph graph;
+    cout << "please write the name of the file with the graph:" << endl;
 
     string input = "";
 
@@ -16,6 +19,39 @@ int main()
     graph.InitializeGraph(input);
 
     graph.printGraph();
+
+
+    Pathfinder finder = Pathfinder(&graph);
+
+    cout << "what path would you like to find?\nOrigin: ";
+
+    string Origin = "";
+    cin >> Origin;
+
+    cout << "Destination: ";
+
+    string Destination = "";
+    cin >> Destination;
+
+    if (finder.Validate(Origin, Destination)) {
+
+        Path solution = finder.FindShortestRoute(Origin, Destination);
+
+        if (solution.GetLength() == -1) {
+            cout << "we're sorry, but it seems there is no path available";
+        }
+        else {
+            cout << "the shortest route from " << Origin << " to " << Destination << " is:\n";
+            cout << "the path is: ";
+            for (int i = 0; i < solution.getRoute().size(); i++) {
+                cout << solution.getRoute()[i] << " ";
+            }
+            cout << endl << "with a length of " << solution.GetLength();
+        }
+    }
+    else {
+        cout << "we're sorry, the Origin or Destination may not be present in the graph.";
+    }
 
 }
 

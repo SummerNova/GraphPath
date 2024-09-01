@@ -80,6 +80,16 @@ int Graph::Reset()
 	return 0;
 }
 
+int Graph::getAmoutofNodes()
+{
+	return AmountofNodes;
+}
+
+vector<string> Graph::getKeys()
+{
+	return key;
+}
+
 vector<Edge> Graph::GetAvailableEdgesOf(string NodeName)
 {
 	vector<Edge> output = {};

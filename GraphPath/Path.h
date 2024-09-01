@@ -20,6 +20,7 @@ public:
 	Path(vector<string> route, int startLen,
 		string newNode, int addedLen);
 	vector<Path> Step(vector<Edge> availableRoutes);
+	
 
 };
 

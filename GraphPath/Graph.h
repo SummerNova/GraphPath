@@ -23,6 +23,8 @@ private:
 
 
 public:
+	int getAmoutofNodes();
+	vector<string> getKeys();
 	vector<Edge> GetAvailableEdgesOf(string NodeName);
 	int InitializeGraph(string inputFileURL);
 	int printGraph();
